@@ -65,3 +65,43 @@ function squirrelPlay(temperature, isSummer) {
   }
 }
 
+function withoutDoubles(die1, die2, noDoubles){
+  if (noDoubles && die1 === die2) {
+    die1 = (die1 === 6) ? 1 : die1 + 1;
+  }
+  return die1 + die2;
+}
+
+function greenTicket(a, b, c){
+  if (a === b && b === c) {
+    return 20;
+  } else if (a === b || a === c || b === c) {
+    return 10;
+  } else {
+    return 0;
+  }
+}
+
+function blackjack(a, b){
+  if (a > 21 && b > 21) {
+    return 0; // Both values are over 21.
+  } else if (a > 21) {
+    return b; // Only 'b' is under 21.
+  } else if (b > 21) {
+    return a; // Only 'a' is under 21.
+  } else {
+    // Both values are under 21; return the one closer to 21.
+    return Math.max(a, b);
+  }
+}
+
+function makeChocolate(small, big, goal) {
+  const maxBigBars = Math.floor(goal / 5);
+  const bigBarsUsed = Math.min(big, maxBigBars);
+  const remainingGoal = goal - (bigBarsUsed * 5);
+  if (small >= remainingGoal) {
+    return remainingGoal;
+  }
+  return -1;
+}
+
